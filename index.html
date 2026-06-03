@@ -1128,7 +1128,7 @@ footer::after{
         <circle cx="19" cy="17" r="3" stroke="currentColor" stroke-width="2"/>
         <path d="M21.5 19.5L23 21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
       </svg>
-      <span id="scheme-btn-text">Схема территории</span>
+      <span id="scheme-btn-text" data-i18n="venue_scheme_btn">Схема территории</span>
       <svg id="scheme-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" style="flex-shrink:0;opacity:0.7;transition:transform 0.35s ease;">
         <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
       </svg>
@@ -1171,16 +1171,17 @@ function toggleScheme() {
   var chevron = document.getElementById('scheme-chevron');
   var btnText = document.getElementById('scheme-btn-text');
   var isOpen = panel.style.maxHeight && panel.style.maxHeight !== '0px';
+  var t = i18n[currentLang];
   if (isOpen) {
     panel.style.maxHeight = '0';
     panel.style.opacity = '0';
     chevron.style.transform = 'rotate(0deg)';
-    btnText.textContent = 'Схема территории';
+    btnText.textContent = t.venue_scheme_btn;
   } else {
     panel.style.maxHeight = panel.scrollHeight + 'px';
     panel.style.opacity = '1';
     chevron.style.transform = 'rotate(180deg)';
-    btnText.textContent = 'Скрыть схему';
+    btnText.textContent = t.venue_scheme_hide;
     setTimeout(function(){ panel.style.maxHeight = '9999px'; }, 650);
   }
 }
@@ -1420,6 +1421,8 @@ const i18n = {
     venue_name: '«АРТИЛЕНД»',
     venue_addr: 'Новское ш., 10, корп. 1<br>Балашиха',
     venue_map_btn: 'Открыть на карте',
+    venue_scheme_btn: 'Схема территории',
+    venue_scheme_hide: 'Скрыть схему',
     gifts_title: 'Подарки и пожелания',
     gifts_text: 'Мы очень ценим вашу заботу и внимание и будем рады любому подарку, неважно, в какой конверт вы его положите.',
     rsvp_title: 'Подтверждение участия',
@@ -1467,6 +1470,8 @@ const i18n = {
     venue_name: 'ARTILAND',
     venue_addr: 'Novskoye Hwy, 10, Bldg. 1<br>Balashikha, Moscow Region',
     venue_map_btn: '打开地图',
+    venue_scheme_btn: '场地平面图',
+    venue_scheme_hide: '收起平面图',
     gifts_title: '礼物与祝福',
     gifts_text: '我们非常感谢您的关爱与心意，无论您选择什么样的礼物，我们都会珍视您的祝福。',
     rsvp_title: '确认出席',
